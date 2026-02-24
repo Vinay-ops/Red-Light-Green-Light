@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinCanvasUI : MonoBehaviour
+public class WinButton : MonoBehaviour
 {
     [SerializeField] private int mainMenuSceneIndex = 0; // Set this in Inspector
 

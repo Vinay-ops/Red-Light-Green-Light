@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
             audioSource.Play();
         }
 
+        playerAnimator.SetBool("Running", false);
+        playerAnimator.SetBool("Stopping", false);
         playerAnimator.SetBool("Die", true);
         PlayerisDead = true;
     }
@@ -68,23 +70,26 @@ public class Player : MonoBehaviour
 
         if (currentMovement != Vector3.zero && !PlayerIsDead())
         {
+            playerAnimator.SetBool("Stopping", false);
+            playerAnimator.SetBool("Running", true);
             characterController.AddForce(transform.TransformDirection(currentMovement.normalized) * acceleration, ForceMode.Acceleration);
         }
         else
         {
+            playerAnimator.SetBool("Running", false);
             playerAnimator.SetBool("Stopping", true);
-            characterController.AddForce(-characterController.velocity.normalized * acceleration, ForceMode.Acceleration);
+            characterController.AddForce(-characterController.linearVelocity.normalized * acceleration, ForceMode.Acceleration);
         }
 
-        if (characterController.velocity.magnitude > maxSpeed)
+        if (characterController.linearVelocity.magnitude > maxSpeed)
         {
-            characterController.velocity = characterController.velocity.normalized * maxSpeed;
+            characterController.linearVelocity = characterController.linearVelocity.normalized * maxSpeed;
         }
 
         if (IsMagnitudeLowerThan())
         {
             playerAnimator.SetBool("Stopping", false);
-            characterController.velocity = Vector3.zero;
+            characterController.linearVelocity = Vector3.zero;
         }
     }
 
@@ -129,7 +134,7 @@ public class Player : MonoBehaviour
 
     bool IsMagnitudeLowerThan(float minMagnitude = 0.1f)
     {
-        return characterController.velocity.magnitude < minMagnitude;
+        return characterController.linearVelocity.magnitude < minMagnitude;
     }
 
     public void OnDeathAnimationComplete()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverUI : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     [SerializeField] private int mainMenuSceneIndex = 0; // Set in Inspector
     [SerializeField] private int gameplaySceneIndex = 1; // Set in Inspector

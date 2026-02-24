@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinTrigger : MonoBehaviour
+public class WinMoment : MonoBehaviour
 {
     [Header("Scene Settings")]
     [Tooltip("Enter the build index of the win scene.")]

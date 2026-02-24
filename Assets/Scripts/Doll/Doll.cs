@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Girl : MonoBehaviour
+public class Doll : MonoBehaviour
 {
     [SerializeField] private AudioSource girlSingingAudioSource;
     [SerializeField] private AudioSource rotationAudioSource;

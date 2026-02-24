@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 [RequireComponent(typeof(Player))]
-public class SwipeInputSystem : MonoBehaviour
+public class Swipeinput : MonoBehaviour
 {
     private Player player;
     private Vector2 startPos;
